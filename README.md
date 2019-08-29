@@ -45,6 +45,24 @@ if you change the field later you may need to manually update all existing colle
 
 [![Moderation Addon](http://img.youtube.com/vi/LywGxJqUJkg/0.jpg)](http://www.youtube.com/watch?v=LywGxJqUJkg "Moderation Addon")
 
+## Force drafts for a specific user group
+
+If you want to deny a user group the right to publish/unpublish entries, then provide `moderation.forceDraft` for the group in question.
+
+Groups with this var wont get a dropdown for the moderation status, they get the `fake-entry-aside.php`-view in the sidebar.
+
+```
+'groups' => [
+  'contributor' => [
+    ...
+    '$vars' => [
+      'moderation.forceDraft' => true
+    ],
+    ...
+  ]
+],
+```
+
 ## Copyright and license
 
 Copyright 2018 pauloamgomes under the MIT license.

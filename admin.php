@@ -9,7 +9,12 @@ $this("acl")->addResource('moderation', [
  * Add moderation markup to collections sidebar.
  */
 $this->on('collections.entry.aside', function() {
-  $this->renderView("moderation:views/partials/entry-aside.php");
+  // if moderation.forceDraft then serve 'fake-entry-aside.php'
+  if ($this->module('cockpit')->getGroupVar('moderation.forceDraft')) {
+    $this->renderView("moderation:views/partials/fake-entry-aside.php");
+  } else {
+    $this->renderView("moderation:views/partials/entry-aside.php");
+  }
 });
 
 /**
